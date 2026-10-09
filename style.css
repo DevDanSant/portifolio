@@ -1,0 +1,271 @@
+   ============================================ */
+:root {
+  --bg-void: #10131a;      /* fundo principal — noite/espaço */
+  --bg-panel: #1b1f27;     /* fundo dos cards, um pouco mais claro */
+  --accent-rust: #c1512b;  /* cor primária — pôr do sol/ferrugem */
+  --accent-mustard: #d9a544; /* cor secundária — luz de letreiro */
+  --accent-teal: #3a5a6b;  /* cor fria — fumaça de jazz bar */
+  --text-main: #e8dfc8;    /* texto principal — pergaminho */
+  --text-muted: #9aa0a6;   /* texto secundário */
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "IBM Plex Mono", monospace;
+
+  --max-width: 1100px;
+}
+
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-void);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  /* leve textura de "scanline" para o clima retrô/CRT */
+  background-image: repeating-linear-gradient(
+    0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px,
+    transparent 1px, transparent 3px
+  );
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* Título de seção usa a fonte de destaque, condensada e pesada */
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; }
+h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 2rem;
+}
+
+/* Etiqueta pequena antes de cada título — funciona como "número de caso" */
+.tag-line {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--accent-mustard);
+  margin-bottom: 0.5rem;
+}
+
+section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+/* ============================================
+   NAVEGAÇÃO
+   ============================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  background: rgba(16, 19, 26, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(232, 223, 200, 0.1);
+}
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  border: 2px solid var(--accent-mustard);
+  padding: 0.1rem 0.6rem;
+}
+.nav__links { display: flex; gap: 2rem; }
+.nav__links a { position: relative; }
+.nav__links a::after {
+  content: "";
+  position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px;
+  background: var(--accent-rust);
+  transition: width 0.25s ease;
+}
+.nav__links a:hover::after { width: 100%; }
+
+/* Botão hambúrguer — só aparece no mobile (ver media query) */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav__toggle span {
+  width: 24px; height: 2px;
+  background: var(--text-main);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+/* O "sol" — um círculo com gradiente, referência estilística de pôr do sol,
+   sem citar nada literalmente. Fica atrás do texto. */
+.hero__sun {
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--accent-mustard), var(--accent-rust) 60%, transparent 75%);
+  opacity: 0.35;
+  z-index: -1;
+  ;
+}
+.hero__content { max-width: 640px; }
+.hero__boot {
+  font-size: 0.9rem;
+  color: var(--accent-mustard);
+  min-height: 1.4em;
+  margin-bottom: 1rem;
+}
+.hero__title {
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 0.95;
+  margin-bottom: 1.2rem;
+}
+.hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 46ch;
+  margin-bottom: 2rem;
+}
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 2px solid var(--accent-rust);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn--solid { background: var(--accent-rust); color: var(--bg-void); }
+.btn--ghost { color: var(--text-main); }
+.btn:hover { transform: translateY(-2px); }
+
+/* ============================================
+   SOBRE
+   ============================================ */
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.sobre__grid p { color: var(--text-muted); }
+
+/* ============================================
+   HABILIDADES — "carimbos" ao invés de pills genéricas
+   ============================================ */
+.stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.stamp {
+  border: 2px dashed var(--accent-teal);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+/* leve rotação alternada pra parecer carimbado à mão, não perfeito demais */
+.stamp:nth-child(3n) { transform: rotate(-1.5deg); }
+.stamp:nth-child(3n+1) { transform: rotate(1deg); }
+
+/* ============================================
+   PROJETOS — cards estilo "dossiê"
+   ============================================ */
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.dossie {
+  background: var(--bg-panel);
+  border: 1px solid rgba(232, 223, 200, 0.08);
+  border-top: 3px solid var(--accent-rust);
+  padding: 1.5rem;
+  transition: border-color 0.2s ease;
+}
+.dossie:hover { border-top-color: var(--accent-mustard); }
+.dossie__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.dossie__status { padding: 0.15rem 0.5rem; border: 1px solid; }
+.dossie__status--ok { color: var(--accent-mustard); border-color: var(--accent-mustard); }
+.dossie__status--mid { color: var(--accent-teal); border-color: var(--accent-teal); }
+.dossie__status--dev { color: var(--text-muted); border-color: var(--text-muted); }
+.dossie h3 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+.dossie p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.dossie__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.dossie__tags li { font-size: 0.7rem; color: var(--accent-teal); }
+.dossie__tags li::before { content: "· "; }
+
+/* ============================================
+   CONTATO
+   ============================================ */
+.contato p { color: var(--text-muted); max-width: 55ch; margin-bottom: 1.5rem; }
+.contato__links { display: flex; gap: 1.5rem; }
+.contato__links a {
+  border-bottom: 2px solid var(--accent-rust);
+  padding-bottom: 2px;
+}
+
+.rodape {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(232, 223, 200, 0.08);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   Só UM breakpoint principal: abaixo de 720px,
+   empilhamos tudo e trocamos o menu por hambúrguer.
+   ============================================ */
+@media (max-width: 720px) {
+  .nav__links {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: var(--bg-void);
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(232, 223, 200, 0.1);
+    display: none; /* escondido até o JS adicionar .aberto */
+  }
+  .nav__links.aberto { display: flex; }
+  .nav__toggle { display: flex; }
+
+  .sobre__grid { grid-template-columns: 1fr; }
+  .hero__sun { width: 300px; height: 300px; opacity: 0.25; }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

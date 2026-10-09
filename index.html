@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Cordeiro — Dev Full Stack em formação</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a href="#topo" class="nav__brand">D · C</a>
+    <button class="nav__toggle" id="navToggle" aria-label="abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#sobre">sobre</a>
+      <a href="#habilidades">habilidades</a>
+      <a href="#projetos">projetos</a>
+      <a href="#contato">contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="topo" class="hero">
+      <div class="hero__sun" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__boot" id="bootLine">&gt;</p>
+        <h1 class="hero__title">Daniel<br>Cordeiro</h1>
+        <p class="hero__subtitle">Estudante de Engenharia de Software, construindo os primeiros sistemas de uma longa jornada pelo código.</p>
+        <div class="hero__actions">
+          <a href="#projetos" class="btn btn--solid">ver projetos</a>
+          <a href="#contato" class="btn btn--ghost">falar comigo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+      <span class="tag-line">registro pessoal</span>
+      <h2>Sobre</h2>
+      <div class="sobre__grid">
+        <p>
+          Sou o <strong>Daniel</strong>, cursando o 2º semestre de Engenharia de Software na Uninter em Curitiba.
+          Antes de migrar para tecnologia, passei anos em atendimento e suporte administrativo  na Rota Transportes — o que me deu uma base sólida em comunicação, organização e resolução de problemas
+          sob pressão.
+        </p>
+        <p>
+          Hoje estou construindo minha base como desenvolvedor full stack (JavaScript, Node.js, MySQL), estudando
+          todos os dias e transformando cada exercício em um pequeno projeto real. Estou em busca de um estágio em
+          tecnologia em Curitiba para colocar tudo isso em prática.
+        </p>
+      </div>
+    </section>
+
+    <section id="habilidades" class="habilidades">
+      <span class="tag-line">arsenal técnico</span>
+      <h2>Habilidades</h2>
+      <ul class="stamps">
+        <li class="stamp">HTML5</li>
+        <li class="stamp">CSS3</li>
+        <li class="stamp">JavaScript</li>
+        <li class="stamp">Lógica de Programação</li>
+        <li class="stamp">Node.js</li>
+        <li class="stamp">MySQL</li>
+        <li class="stamp">Git &amp; GitHub</li>
+        <li class="stamp">Atendimento &amp; Suporte</li>
+        <li class="stamp">Organização de Processos</li>
+      </ul>
+    </section>
+
+    <section id="projetos" class="projetos">
+      <span class="tag-line">dossiês de projeto</span>
+      <h2>Projetos</h2>
+      <div class="projetos__grid">
+
+        <article class="dossie">
+          <header class="dossie__head">
+            <span class="dossie__arquivo">arquivo geekverse.js</span>
+            <span class="dossie__status dossie__status--ok">concluído</span>
+          </header>
+          <h3>GeekVerse</h3>
+          <p>Blog geek/nerd de página única com estética cyberpunk: navegação fixa com busca em tempo real,
+             ticker de notícias, artigos filtráveis, loja com carrinho funcional e notificações toast.</p>
+          <ul class="dossie__tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </article>
+
+        <article class="dossie">
+          <header class="dossie__head">
+            <span class="dossie__arquivo">arquivo cronometro.js</span>
+            <span class="dossie__status dossie__status--ok">concluído</span>
+          </header>
+          <h3>Cronômetro Pomodoro</h3>
+          <p>Aplicação de temporizador para estudo com técnica Pomodoro, praticando manipulação de DOM e
+             controle de tempo com <code>setInterval</code>.</p>
+          <ul class="dossie__tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </article>
+
+        <article class="dossie">
+          <header class="dossie__head">
+            <span class="dossie__arquivo">arquivo produto.js</span>
+            <span class="dossie__status dossie__status--mid">em ajustes</span>
+          </header>
+          <h3>Cadastro de Produtos</h3>
+          <p>Interface de cadastro com uma classe <code>Produto</code>, array de produtos e validação de
+             dados de entrada antes da renderização em tabela.</p>
+          <ul class="dossie__tags"><li>HTML</li><li>CSS</li><li>JavaScript OOP</li></ul>
+        </article>
+
+        <article class="dossie">
+          <header class="dossie__head">
+            <span class="dossie__arquivo">arquivo estoque.js</span>
+            <span class="dossie__status dossie__status--dev">em planejamento</span>
+          </header>
+          <h3>Controle de Estoque</h3>
+          <p>Sistema de entrada e saída de produtos com validação de quantidade e menu interativo —
+             meu projeto principal para consolidar lógica de programação em JavaScript.</p>
+          <ul class="dossie__tags"><li>JavaScript</li><li>Lógica</li></ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <span class="tag-line">canal aberto</span>
+      <h2>Vamos conversar?</h2>
+      <p>Estou em busca de um estágio em tecnologia em Curitiba. Se você tem uma oportunidade ou só quer
+         trocar uma ideia sobre código, os canais estão abertos.</p>
+      <div class="contato__links">
+        <a href="mailto:seuemail@exemplo.com">e-mail</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Daniel Cordeiro · Curitiba, PR · <span id="ano"></span></p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
